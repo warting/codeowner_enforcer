@@ -20,7 +20,7 @@ jobs:
           npm install --global codeowners
 
       - name: "List all files with owner"
-        run: output=$(codeowners audit --unowned | while read -r line; do if [[ ! -d $line ]]; then echo $line; fi; done) && [[ -n $output ]] && echo $output && exit 1
+        run: output=$(codeowners audit --unowned | while read -r line; do if [[ ! -d $line ]]; then echo "$line"; fi; done) && [[ -n "$output" ]] && echo "$output" && exit 1
 
       - name: "Verify all files is owned"
         run: codeowners-enforcer

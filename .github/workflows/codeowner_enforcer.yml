@@ -16,7 +16,12 @@ jobs:
           node-version: 16
 
       - name: "Install codeowner enforcer"
-        run: npm install --global codeowners-enforcer
+        run: |
+          npm install --global codeowners
+          npm install --global codeowners-enforcer
+
+      - name: "List all files with owner"
+        run: codeowners audit
 
       - name: "Verify all files is owned"
         run: codeowners-enforcer

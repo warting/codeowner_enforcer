@@ -21,7 +21,7 @@ jobs:
           npm install --global codeowners-enforcer
 
       - name: "List all files with owner"
-        run: codeowners audit
+        run: codeowners audit --unowned
 
       - name: "Verify all files is owned"
         run: codeowners-enforcer
